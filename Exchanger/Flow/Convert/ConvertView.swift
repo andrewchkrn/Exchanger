@@ -30,6 +30,9 @@ struct ConvertView: View {
                 
                 Spacer()
             }
+            .onAppear() {
+                viewModel.onAppear()
+            }
             .padding(Constants.padding)
             .toolbar(.hidden, for: .tabBar)
         }

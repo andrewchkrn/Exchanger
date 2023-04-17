@@ -31,6 +31,15 @@ class ConvertViewModel: ObservableObject {
     
     // MARK: - Public func
     func onChange() {
+        convertValue()
+    }
+    
+    func onAppear() {
+        convertValue()
+    }
+    
+    // MARK: - Private func
+    private func convertValue() {
         APIClient.exchangerClient.getConvert(from: currencyFrom, to: currencyTo , amount: valueFrom)
             .sink { [weak self] in
                 switch $0 {
